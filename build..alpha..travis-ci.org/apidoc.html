@@ -1,0 +1,2272 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/magicmonkey/lifxjs"
+
+    >lifx (v0.3.1)</a>
+</h1>
+<h4>a library to control LIFX wifi lightbulbs</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.lifx">module lifx</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.init">
+            function <span class="apidocSignatureSpan">lifx.</span>init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.setDebug">
+            function <span class="apidocSignatureSpan">lifx.</span>setDebug
+            <span class="apidocSignatureSpan">(d)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">lifx.</span>lifx_ol</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">lifx.</span>packet</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.lifx.lifx_ol">module lifx.lifx_ol</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.lifx_ol.init">
+            function <span class="apidocSignatureSpan">lifx.lifx_ol.</span>init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.lifx_ol.setDebug">
+            function <span class="apidocSignatureSpan">lifx.lifx_ol.</span>setDebug
+            <span class="apidocSignatureSpan">(d)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.lifx.packet">module lifx.packet</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.accessPoint">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>accessPoint
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.bulbLabel">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>bulbLabel
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.disableFactoryTestMode">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>disableFactoryTestMode
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.fromBytes">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>fromBytes
+            <span class="apidocSignatureSpan">(b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.fromParams">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>fromParams
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getAccessPoints">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getAccessPoints
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getBulbLabel">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getBulbLabel
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getInfo">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getInfo
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getLightState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getLightState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getLightTemperature">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getLightTemperature
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getMcuRailVoltage">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getMcuRailVoltage
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getMeshFirmware">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getMeshFirmware
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getMeshInfo">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getMeshInfo
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getPanGateway">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getPanGateway
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getPowerState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getPowerState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getResetSwitchState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getResetSwitchState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getTagLabels">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getTagLabels
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getTags">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getTags
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getTime">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getTime
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getVersion">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getVersion
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getWifiFirmwareState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getWifiFirmwareState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getWifiInfo">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getWifiInfo
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.getWifiState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>getWifiState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.infoState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>infoState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.lightStatus">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>lightStatus
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.lightTemperature">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>lightTemperature
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.mcuRailVoltage">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>mcuRailVoltage
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.meshFirmware">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>meshFirmware
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.meshInfo">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>meshInfo
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.panGateway">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>panGateway
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.polyfill">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>polyfill
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.powerState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>powerState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.reboot">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>reboot
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.resetSwitchState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>resetSwitchState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setAccessPoints">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setAccessPoints
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setBulbLabel">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setBulbLabel
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setDimAbsolute">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setDimAbsolute
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setDimRelative">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setDimRelative
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setFactoryTestMode">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setFactoryTestMode
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setLightColour">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setLightColour
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setLightColourRGBW">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setLightColourRGBW
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setPowerState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setPowerState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setTagLabels">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setTagLabels
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setTags">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setTags
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setTime">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setTime
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setWaveform">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setWaveform
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.setWifiState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>setWifiState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.tagLabels">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>tagLabels
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.tags">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>tags
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.timeState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>timeState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.versionState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>versionState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.wanStateConnect">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>wanStateConnect
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.wanStateSub">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>wanStateSub
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.wanSub">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>wanSub
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.wanUnsub">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>wanUnsub
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.wifiFirmwareState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>wifiFirmwareState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.wifiInfo">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>wifiInfo
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.lifx.packet.wifiState">
+            function <span class="apidocSignatureSpan">lifx.packet.</span>wifiState
+            <span class="apidocSignatureSpan">(p)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.lifx" id="apidoc.module.lifx">module lifx</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.init" id="apidoc.element.lifx.init">
+        function <span class="apidocSignatureSpan">lifx.</span>init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function init() {
+	var l = new Lifx();
+	l.on(&#x27;ready&#x27;, function() {
+		l.startDiscovery(1000);
+	});
+	return l;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+In addition to the main &#x22;Lifx&#x22; object which acts as your agent to the Lifx
+bulbs, there are 2 fundamental objects in the library; a &#x22;gateway&#x22; object which
+represents the wifi interface (and can do things like discovery of the other
+bulbs, send messages to a bulb etc) and a &#x22;bulb&#x22; object which is useful for
+sending commands to individual bulbs.
+
+To begin with, you must include the library and then call ```lifx.<span class="apidocCodeKeywordSpan">init</span>()```
+which will return a new ```Lifx``` object and initialise discovery of gateways
+and bulbs.
+
+```JavaScript
+var lifx = require(&#x27;./lifx&#x27;);
+var lx   = lifx.init();
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.setDebug" id="apidoc.element.lifx.setDebug">
+        function <span class="apidocSignatureSpan">lifx.</span>setDebug
+        <span class="apidocSignatureSpan">(d)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setDebug = function (d){debug=d;}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Similarly, to send a raw command to an individual bulb, use
+```lx.sendToOne(packet.getLightState(), bulb)``` passing in a bulb object from
+the lx.bulbs array.
+
+If you want to see debug messages (including network traffic) then call
+
+```JavaScript
+lifx.<span class="apidocCodeKeywordSpan">setDebug</span>(true);
+```
+
+## Wireshark dissector
+
+There is a wireshark dissector for the LIFX protocol in the &#x22;wireshark&#x22;
+directory.  To load it, run Wireshark with:
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.lifx.lifx_ol" id="apidoc.module.lifx.lifx_ol">module lifx.lifx_ol</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.lifx_ol.init" id="apidoc.element.lifx.lifx_ol.init">
+        function <span class="apidocSignatureSpan">lifx.lifx_ol.</span>init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function init() {
+	var l = new Lifx(function(_l) {
+		_l.startDiscovery();
+	});
+	return l;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+In addition to the main &#x22;Lifx&#x22; object which acts as your agent to the Lifx
+bulbs, there are 2 fundamental objects in the library; a &#x22;gateway&#x22; object which
+represents the wifi interface (and can do things like discovery of the other
+bulbs, send messages to a bulb etc) and a &#x22;bulb&#x22; object which is useful for
+sending commands to individual bulbs.
+
+To begin with, you must include the library and then call ```lifx.<span class="apidocCodeKeywordSpan">init</span>()```
+which will return a new ```Lifx``` object and initialise discovery of gateways
+and bulbs.
+
+```JavaScript
+var lifx = require(&#x27;./lifx&#x27;);
+var lx   = lifx.init();
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.lifx_ol.setDebug" id="apidoc.element.lifx.lifx_ol.setDebug">
+        function <span class="apidocSignatureSpan">lifx.lifx_ol.</span>setDebug
+        <span class="apidocSignatureSpan">(d)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setDebug = function (d){debug=d;}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Similarly, to send a raw command to an individual bulb, use
+```lx.sendToOne(packet.getLightState(), bulb)``` passing in a bulb object from
+the lx.bulbs array.
+
+If you want to see debug messages (including network traffic) then call
+
+```JavaScript
+lifx.<span class="apidocCodeKeywordSpan">setDebug</span>(true);
+```
+
+## Wireshark dissector
+
+There is a wireshark dissector for the LIFX protocol in the &#x22;wireshark&#x22;
+directory.  To load it, run Wireshark with:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.lifx.packet" id="apidoc.module.lifx.packet">module lifx.packet</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.accessPoint" id="apidoc.element.lifx.packet.accessPoint">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>accessPoint
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">accessPoint = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.bulbLabel" id="apidoc.element.lifx.packet.bulbLabel">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>bulbLabel
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bulbLabel = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.disableFactoryTestMode" id="apidoc.element.lifx.packet.disableFactoryTestMode">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>disableFactoryTestMode
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">disableFactoryTestMode = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.fromBytes" id="apidoc.element.lifx.packet.fromBytes">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>fromBytes
+        <span class="apidocSignatureSpan">(b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromBytes = function (b) {
+	var newPacket = {preamble:{}, payload:{}};
+
+	// First parse the preamble
+	var runningPlace = 0;
+	for (var i=0; i&#x3c;preambleFields.length; i++) {
+		var f = preambleFields[i];
+		newPacket.preamble[f.name] = f.type.parse(b, runningPlace);
+		runningPlace += f.type.size;
+	}
+
+	// Now parse the packet-specific bytes
+	var pParser = packets[newPacket.preamble.packetType];
+	if (typeof pParser == &#x27;undefined&#x27;) {
+		console.log(&#x22;Unknown packet type &#x22;+newPacket.preamble.packetType);
+	} else {
+		newPacket.packetTypeName = pParser.name;
+		newPacket.packetTypeShortName = pParser.shortname;
+		for (var i=0; i&#x3c;pParser.fields.length; i++) {
+			var f = pParser.fields[i];
+			newPacket.payload[f.name] = f.type.parse(b, runningPlace);
+			runningPlace += f.type.size;
+		}
+	}
+
+	return newPacket;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	//this.udpClient.unref(); // Stop this from preventing Node from ending
+	this.udpClient.on(&#x22;error&#x22;, function (err) {
+		console.log(&#x22;UDP error &#x22; + err);
+	});
+
+	this.udpClient.on(&#x22;message&#x22;, function (msg, rinfo) {
+		if (debug) console.log(&#x22; U- &#x22; + msg.toString(&#x22;hex&#x22;));
+		var pkt = packet.<span class="apidocCodeKeywordSpan">fromBytes</span>(msg);
+		if (pkt.packetTypeShortName == &#x27;panGateway&#x27; &#x26;&#x26; pkt.payload.service == 1) {
+			var gw = new Gateway(self, rinfo.address, pkt.payload.port, pkt.preamble.site);
+			self.foundGateway(gw);
+		}
+	});
+	this.udpClient.bind(port, &#x22;0.0.0.0&#x22;, function() {
+		self.udpClient.setBroadcast(true);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.fromParams" id="apidoc.element.lifx.packet.fromParams">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>fromParams
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromParams = function (p) {
+	if (typeof p.type == &#x27;undefined&#x27;) {
+		console.log(&#x22;Unknown packet type requested&#x22;);
+		return;
+	}
+
+	var pParser;
+	for (var i in packets) {
+		if (packets[i].shortname == p.type) {
+			pParser = packets[i];
+			pParser.packetType = i;
+			break;
+		}
+	}
+
+	var newPacket = new Buffer(36 + pParser.length);
+	var newPacketPayload = newPacket.slice(36);
+
+	// Generate packet-specific data
+	var runningPlace = 0;
+	for (var i=0; i&#x3c;pParser.fields.length; i++) {
+		pParser.fields[i].type.unparse(newPacketPayload, runningPlace, p[pParser.fields[i].name]);
+		runningPlace += pParser.fields[i].type.size;
+	}
+	
+	// Generate preamble
+	var runningPlace = 0;
+	for (var i=0; i&#x3c;preambleFields.length; i++) {
+		var f = preambleFields[i];
+		var datum;
+		switch (f.name) {
+			case &#x27;size&#x27;:
+				datum = 36 + pParser.length;
+				break;
+			case &#x27;protocol&#x27;:
+				if (typeof p[f.name] == &#x27;undefined&#x27;) {
+//					datum = 0x5400;
+					datum = 0x3400;
+//					datum = 0x1400;
+				} else {
+					datum = p[f.name];
+				}
+				break;
+			case &#x27;bulbAddress&#x27;:
+			case &#x27;site&#x27;:
+				if (typeof p[f.name] == &#x27;undefined&#x27;) {
+					datum = new Buffer([0,0,0,0,0,0]);
+				} else {
+					datum = p[f.name];
+				}
+				break;
+			case &#x27;reserved1&#x27;:
+			case &#x27;reserved2&#x27;:
+			case &#x27;reserved3&#x27;:
+			case &#x27;reserved4&#x27;:
+			case &#x27;timestamp&#x27;:
+				datum = new Buffer(f.type.size);
+				datum.fill(0);
+				break;
+			case &#x27;packetType&#x27;:
+				datum = pParser.packetType;
+				break;
+		}
+		f.type.unparse(newPacket, runningPlace, datum);
+		runningPlace += f.type.size;
+	}
+	return newPacket;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getAccessPoints" id="apidoc.element.lifx.packet.getAccessPoints">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getAccessPoints
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAccessPoints = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getBulbLabel" id="apidoc.element.lifx.packet.getBulbLabel">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getBulbLabel
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBulbLabel = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting wifi state&#x22;);
+			var message = packet.getWifiState({interface:2});
+			lx.sendToAll(message);
+			break;
+
+		case 0x66: // f
+			console.log(&#x22;Requesting bulb label&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getBulbLabel</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x67: // g
+			console.log(&#x22;Requesting tags&#x22;);
+			var message = packet.getTags();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getInfo" id="apidoc.element.lifx.packet.getInfo">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getInfo
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getInfo = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting time&#x22;);
+			var message = packet.getTime();
+			lx.sendToAll(message);
+			break;
+
+		case 0x6a: // j
+			console.log(&#x22;Requesting info&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getInfo</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x6b: // k
+			console.log(&#x22;Requesting reset switch state&#x22;);
+			var message = packet.getResetSwitchState();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getLightState" id="apidoc.element.lifx.packet.getLightState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getLightState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getLightState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* luminance is how bright the bulbs should be.
+* whiteColour is something like the colour temperatue, and is the wheel used in
+  the &#x22;Whites&#x22; screen in the iPhone app.
+* fadeTime says how quickly the bulbs should move to the given state, and seem
+  to roughly be in milliseconds.  Use 0 for an immediate change.
+
+The &#x22;packet.js&#x22; module constructs each raw packet type, which can be sent to all
+bulbs using something like ```lx.sendToAll(packet.<span class="apidocCodeKeywordSpan">getLightState</span>())```.
+Similarly, to send a raw command to an individual bulb, use
+```lx.sendToOne(packet.getLightState(), bulb)``` passing in a bulb object from
+the lx.bulbs array.
+
+If you want to see debug messages (including network traffic) then call
+
+```JavaScript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getLightTemperature" id="apidoc.element.lifx.packet.getLightTemperature">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getLightTemperature
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getLightTemperature = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getMcuRailVoltage" id="apidoc.element.lifx.packet.getMcuRailVoltage">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getMcuRailVoltage
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMcuRailVoltage = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		case 0x39: // 9
+			console.log(&#x22;Disabling debug&#x22;);
+			lifx.setDebug(false);
+			break;
+
+		case 0x61: // a
+			console.log(&#x22;Requesting voltage&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getMcuRailVoltage</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x62: // b
+			console.log(&#x22;Requesting power state&#x22;);
+			var message = packet.getPowerState();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getMeshFirmware" id="apidoc.element.lifx.packet.getMeshFirmware">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getMeshFirmware
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMeshFirmware = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting mesh info&#x22;);
+			var message = packet.getMeshInfo();
+			lx.sendToAll(message);
+			break;
+
+		case 0x6d: // m
+			console.log(&#x22;Requesting mesh firmware&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getMeshFirmware</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x03: // ctrl-c
+			console.log(&#x22;Closing...&#x22;);
+			lx.close();
+			process.stdin.pause();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getMeshInfo" id="apidoc.element.lifx.packet.getMeshInfo">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getMeshInfo
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMeshInfo = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting reset switch state&#x22;);
+			var message = packet.getResetSwitchState();
+			lx.sendToAll(message);
+			break;
+
+		case 0x6c: // l
+			console.log(&#x22;Requesting mesh info&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getMeshInfo</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x6d: // m
+			console.log(&#x22;Requesting mesh firmware&#x22;);
+			var message = packet.getMeshFirmware();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getPanGateway" id="apidoc.element.lifx.packet.getPanGateway">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getPanGateway
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPanGateway = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	});
+}
+
+Lifx.prototype.startDiscovery = function() {
+	// Now send the discovery packets
+	var self = this;
+	this._intervalID = setInterval(function() {
+		var message = packet.<span class="apidocCodeKeywordSpan">getPanGateway</span>();
+		self.sendPacket(&#x22;255.255.255.255&#x22;, port, message);
+	}, 1000);
+};
+
+Lifx.prototype.foundGateway = function(gw) {
+	var found = false;
+	for (var i in this.gateways) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getPowerState" id="apidoc.element.lifx.packet.getPowerState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getPowerState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPowerState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting voltage&#x22;);
+			var message = packet.getMcuRailVoltage();
+			lx.sendToAll(message);
+			break;
+
+		case 0x62: // b
+			console.log(&#x22;Requesting power state&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getPowerState</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x63: // c
+			console.log(&#x22;Requesting wifi info&#x22;);
+			var message = packet.getWifiInfo();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getResetSwitchState" id="apidoc.element.lifx.packet.getResetSwitchState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getResetSwitchState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getResetSwitchState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting info&#x22;);
+			var message = packet.getInfo();
+			lx.sendToAll(message);
+			break;
+
+		case 0x6b: // k
+			console.log(&#x22;Requesting reset switch state&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getResetSwitchState</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x6c: // l
+			console.log(&#x22;Requesting mesh info&#x22;);
+			var message = packet.getMeshInfo();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getTagLabels" id="apidoc.element.lifx.packet.getTagLabels">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getTagLabels
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTagLabels = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting tags&#x22;);
+			var message = packet.getTags();
+			lx.sendToAll(message);
+			break;
+
+		case 0x68: // h
+			console.log(&#x22;Requesting tag label for tag 1&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getTagLabels</span>({tags:new Buffer([1,0,0,0,0,0,0,0])});
+			lx.sendToAll(message);
+			break;
+
+		case 0x69: // i
+			console.log(&#x22;Requesting time&#x22;);
+			var message = packet.getTime();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getTags" id="apidoc.element.lifx.packet.getTags">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getTags
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTags = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting bulb label&#x22;);
+			var message = packet.getBulbLabel();
+			lx.sendToAll(message);
+			break;
+
+		case 0x67: // g
+			console.log(&#x22;Requesting tags&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getTags</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x68: // h
+			console.log(&#x22;Requesting tag label for tag 1&#x22;);
+			var message = packet.getTagLabels({tags:new Buffer([1,0,0,0,0,0,0,0])});
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getTime" id="apidoc.element.lifx.packet.getTime">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getTime
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTime = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting tag label for tag 1&#x22;);
+			var message = packet.getTagLabels({tags:new Buffer([1,0,0,0,0,0,0,0])});
+			lx.sendToAll(message);
+			break;
+
+		case 0x69: // i
+			console.log(&#x22;Requesting time&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getTime</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x6a: // j
+			console.log(&#x22;Requesting info&#x22;);
+			var message = packet.getInfo();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getVersion" id="apidoc.element.lifx.packet.getVersion">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getVersion
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getVersion = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getWifiFirmwareState" id="apidoc.element.lifx.packet.getWifiFirmwareState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getWifiFirmwareState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getWifiFirmwareState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting wifi info&#x22;);
+			var message = packet.getWifiInfo();
+			lx.sendToAll(message);
+			break;
+
+		case 0x64: // d
+			console.log(&#x22;Requesting wifi firmware state&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getWifiFirmwareState</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x65: // e
+			console.log(&#x22;Requesting wifi state&#x22;);
+			var message = packet.getWifiState({interface:2});
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getWifiInfo" id="apidoc.element.lifx.packet.getWifiInfo">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getWifiInfo
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getWifiInfo = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting power state&#x22;);
+			var message = packet.getPowerState();
+			lx.sendToAll(message);
+			break;
+
+		case 0x63: // c
+			console.log(&#x22;Requesting wifi info&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getWifiInfo</span>();
+			lx.sendToAll(message);
+			break;
+
+		case 0x64: // d
+			console.log(&#x22;Requesting wifi firmware state&#x22;);
+			var message = packet.getWifiFirmwareState();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.getWifiState" id="apidoc.element.lifx.packet.getWifiState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>getWifiState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getWifiState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			console.log(&#x22;Requesting wifi firmware state&#x22;);
+			var message = packet.getWifiFirmwareState();
+			lx.sendToAll(message);
+			break;
+
+		case 0x65: // e
+			console.log(&#x22;Requesting wifi state&#x22;);
+			var message = packet.<span class="apidocCodeKeywordSpan">getWifiState</span>({interface:2});
+			lx.sendToAll(message);
+			break;
+
+		case 0x66: // f
+			console.log(&#x22;Requesting bulb label&#x22;);
+			var message = packet.getBulbLabel();
+			lx.sendToAll(message);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.infoState" id="apidoc.element.lifx.packet.infoState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>infoState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">infoState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.lightStatus" id="apidoc.element.lifx.packet.lightStatus">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>lightStatus
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lightStatus = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.lightTemperature" id="apidoc.element.lifx.packet.lightTemperature">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>lightTemperature
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lightTemperature = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.mcuRailVoltage" id="apidoc.element.lifx.packet.mcuRailVoltage">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>mcuRailVoltage
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mcuRailVoltage = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.meshFirmware" id="apidoc.element.lifx.packet.meshFirmware">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>meshFirmware
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">meshFirmware = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.meshInfo" id="apidoc.element.lifx.packet.meshInfo">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>meshInfo
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">meshInfo = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.panGateway" id="apidoc.element.lifx.packet.panGateway">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>panGateway
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">panGateway = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.polyfill" id="apidoc.element.lifx.packet.polyfill">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>polyfill
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">polyfill = function () {
+	for (var i in packets) {
+		var pkt = packets[i];
+		packet[pkt.shortname] = function(pkt) {
+			return function(p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			};
+		}(pkt);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.powerState" id="apidoc.element.lifx.packet.powerState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>powerState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">powerState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.reboot" id="apidoc.element.lifx.packet.reboot">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>reboot
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reboot = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.resetSwitchState" id="apidoc.element.lifx.packet.resetSwitchState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>resetSwitchState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resetSwitchState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setAccessPoints" id="apidoc.element.lifx.packet.setAccessPoints">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setAccessPoints
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setAccessPoints = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setBulbLabel" id="apidoc.element.lifx.packet.setBulbLabel">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setBulbLabel
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setBulbLabel = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setDimAbsolute" id="apidoc.element.lifx.packet.setDimAbsolute">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setDimAbsolute
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setDimAbsolute = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setDimRelative" id="apidoc.element.lifx.packet.setDimRelative">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setDimRelative
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setDimRelative = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setFactoryTestMode" id="apidoc.element.lifx.packet.setFactoryTestMode">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setFactoryTestMode
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setFactoryTestMode = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setLightColour" id="apidoc.element.lifx.packet.setLightColour">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setLightColour
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setLightColour = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	this._sendToOneOrAll(packet.setPowerState({onoff:0}), bulb);
+};
+
+// Set all bulbs to a particular colour
+// Pass in 16-bit numbers for each param - they will be byte shuffled as appropriate
+Lifx.prototype.lightsColour = function(hue, sat, lum, whitecol, timing, bulb) {
+	var params = {stream:0, hue:hue, saturation:sat, brightness:lum, kelvin:whitecol, fadeTime:timing};
+	var message = packet.<span class="apidocCodeKeywordSpan">setLightColour</span>(params);
+	this._sendToOneOrAll(message, bulb);
+};
+
+// Request status from bulbs
+Lifx.prototype.requestStatus = function() {
+	this._sendToOneOrAll(packet.getLightState());
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setLightColourRGBW" id="apidoc.element.lifx.packet.setLightColourRGBW">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setLightColourRGBW
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setLightColourRGBW = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setPowerState" id="apidoc.element.lifx.packet.setPowerState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setPowerState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setPowerState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	});
+};
+
+/////// Fun methods ////////
+
+// Turn all lights on
+Lifx.prototype.lightsOn = function(bulb) {
+	this._sendToOneOrAll(packet.<span class="apidocCodeKeywordSpan">setPowerState</span>({onoff:1}), bulb);
+};
+
+// Turn all lights off
+Lifx.prototype.lightsOff = function(bulb) {
+	this._sendToOneOrAll(packet.setPowerState({onoff:0}), bulb);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setTagLabels" id="apidoc.element.lifx.packet.setTagLabels">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setTagLabels
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setTagLabels = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setTags" id="apidoc.element.lifx.packet.setTags">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setTags
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setTags = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setTime" id="apidoc.element.lifx.packet.setTime">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setTime
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setTime = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setWaveform" id="apidoc.element.lifx.packet.setWaveform">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setWaveform
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setWaveform = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.setWifiState" id="apidoc.element.lifx.packet.setWifiState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>setWifiState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setWifiState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.tagLabels" id="apidoc.element.lifx.packet.tagLabels">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>tagLabels
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tagLabels = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.tags" id="apidoc.element.lifx.packet.tags">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>tags
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tags = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.timeState" id="apidoc.element.lifx.packet.timeState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>timeState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">timeState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.versionState" id="apidoc.element.lifx.packet.versionState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>versionState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">versionState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.wanStateConnect" id="apidoc.element.lifx.packet.wanStateConnect">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>wanStateConnect
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wanStateConnect = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.wanStateSub" id="apidoc.element.lifx.packet.wanStateSub">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>wanStateSub
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wanStateSub = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.wanSub" id="apidoc.element.lifx.packet.wanSub">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>wanSub
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wanSub = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.wanUnsub" id="apidoc.element.lifx.packet.wanUnsub">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>wanUnsub
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wanUnsub = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.wifiFirmwareState" id="apidoc.element.lifx.packet.wifiFirmwareState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>wifiFirmwareState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wifiFirmwareState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.wifiInfo" id="apidoc.element.lifx.packet.wifiInfo">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>wifiInfo
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wifiInfo = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.lifx.packet.wifiState" id="apidoc.element.lifx.packet.wifiState">
+        function <span class="apidocSignatureSpan">lifx.packet.</span>wifiState
+        <span class="apidocSignatureSpan">(p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wifiState = function (p) {
+				if (typeof p != &#x27;object&#x27;) {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.fromParams(p);
+			}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
