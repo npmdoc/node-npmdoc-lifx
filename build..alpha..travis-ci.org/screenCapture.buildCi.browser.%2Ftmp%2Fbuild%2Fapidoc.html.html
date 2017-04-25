@@ -655,21 +655,21 @@
 	return l;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-
-In addition to the main "Lifx" object which acts as your agent to the Lifx
-bulbs, there are 2 fundamental objects in the library; a "gateway" object which
-represents the wifi interface (and can do things like discovery of the other
-bulbs, send messages to a bulb etc) and a "bulb" object which is useful for
-sending commands to individual bulbs.
-
-To begin with, you must include the library and then call ```lifx.<span class="apidocCodeKeywordSpan">init</span>()```
-which will return a new ```Lifx``` object and initialise discovery of gateways
-and bulbs.
-
-```JavaScript
 var lifx = require('./lifx');
-var lx   = lifx.init();
-```
+var util = require('util');
+
+var step = 100;
+var autoCommit = true;
+var timing = 0;
+
+var lx = lifx.<span class="apidocCodeKeywordSpan">init</span>();
+
+lx.on('bulbstate', function(b) {
+	console.log('Bulb state: ' + util.inspect(b));
+});
+lx.on('bulbonoff', function(b) {
+	console.log('Bulb on/off: ' + util.inspect(b));
+});
 ...</pre></li>
     </ul>
 
@@ -684,20 +684,20 @@ var lx   = lifx.init();
     <ul>
     <li>description and source-code<pre class="apidocCodePre">setDebug = function (d){debug=d;}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-Similarly, to send a raw command to an individual bulb, use
-```lx.sendToOne(packet.getLightState(), bulb)``` passing in a bulb object from
-the lx.bulbs array.
+		case 0x37: // 7
+			console.log("Auto commit off");
+			autoCommit = false;
+			break;
 
-If you want to see debug messages (including network traffic) then call
+		case 0x38: // 8
+			console.log("Debug on");
+			lifx.<span class="apidocCodeKeywordSpan">setDebug</span>(true);
+			break;
 
-```JavaScript
-lifx.<span class="apidocCodeKeywordSpan">setDebug</span>(true);
-```
-
-## Wireshark dissector
-
-There is a wireshark dissector for the LIFX protocol in the "wireshark"
-directory.  To load it, run Wireshark with:
+		case 0x39: // 9
+			console.log("Debug off");
+			lifx.setDebug(false);
+			break;
 ...</pre></li>
     </ul>
 
@@ -726,21 +726,21 @@ directory.  To load it, run Wireshark with:
 	return l;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-
-In addition to the main "Lifx" object which acts as your agent to the Lifx
-bulbs, there are 2 fundamental objects in the library; a "gateway" object which
-represents the wifi interface (and can do things like discovery of the other
-bulbs, send messages to a bulb etc) and a "bulb" object which is useful for
-sending commands to individual bulbs.
-
-To begin with, you must include the library and then call ```lifx.<span class="apidocCodeKeywordSpan">init</span>()```
-which will return a new ```Lifx``` object and initialise discovery of gateways
-and bulbs.
-
-```JavaScript
 var lifx = require('./lifx');
-var lx   = lifx.init();
-```
+var util = require('util');
+
+var step = 100;
+var autoCommit = true;
+var timing = 0;
+
+var lx = lifx.<span class="apidocCodeKeywordSpan">init</span>();
+
+lx.on('bulbstate', function(b) {
+	console.log('Bulb state: ' + util.inspect(b));
+});
+lx.on('bulbonoff', function(b) {
+	console.log('Bulb on/off: ' + util.inspect(b));
+});
 ...</pre></li>
     </ul>
 
@@ -755,20 +755,20 @@ var lx   = lifx.init();
     <ul>
     <li>description and source-code<pre class="apidocCodePre">setDebug = function (d){debug=d;}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-Similarly, to send a raw command to an individual bulb, use
-```lx.sendToOne(packet.getLightState(), bulb)``` passing in a bulb object from
-the lx.bulbs array.
+		case 0x37: // 7
+			console.log("Auto commit off");
+			autoCommit = false;
+			break;
 
-If you want to see debug messages (including network traffic) then call
+		case 0x38: // 8
+			console.log("Debug on");
+			lifx.<span class="apidocCodeKeywordSpan">setDebug</span>(true);
+			break;
 
-```JavaScript
-lifx.<span class="apidocCodeKeywordSpan">setDebug</span>(true);
-```
-
-## Wireshark dissector
-
-There is a wireshark dissector for the LIFX protocol in the "wireshark"
-directory.  To load it, run Wireshark with:
+		case 0x39: // 9
+			console.log("Debug off");
+			lifx.setDebug(false);
+			break;
 ...</pre></li>
     </ul>
 
@@ -871,21 +871,21 @@ directory.  To load it, run Wireshark with:
 	return newPacket;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-	//this.udpClient.unref(); // Stop this from preventing Node from ending
-	this.udpClient.on("error", function (err) {
-		console.log("UDP error " + err);
 	});
-
 	this.udpClient.on("message", function (msg, rinfo) {
+		// Check it didn't come from us
+		if (self._localIPs.indexOf(rinfo.address) &gt; -1) {
+			return;
+		}
 		if (debug) console.log(" U- " + msg.toString("hex"));
 		var pkt = packet.<span class="apidocCodeKeywordSpan">fromBytes</span>(msg);
-		if (pkt.packetTypeShortName == 'panGateway' &amp;&amp; pkt.payload.service == 1) {
-			var gw = new Gateway(self, rinfo.address, pkt.payload.port, pkt.preamble.site);
-			self.foundGateway(gw);
-		}
+		self.emit('rawpacket', pkt, rinfo);
 	});
 	this.udpClient.bind(port, "0.0.0.0", function() {
 		self.udpClient.setBroadcast(true);
+		self.emit('ready');
+	});
+}
 ...</pre></li>
     </ul>
 
@@ -966,7 +966,23 @@ directory.  To load it, run Wireshark with:
 	}
 	return newPacket;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		var pkt = packets[i];
+		packet[pkt.shortname] = function(pkt) {
+			return function(p) {
+				if (typeof p != 'object') {
+					p = {};
+				}
+				p.type = pkt.shortname;
+				return packet.<span class="apidocCodeKeywordSpan">fromParams</span>(p);
+			};
+		}(pkt);
+	}
+}
+
+packet.fromBytes = function(b) {
+	var newPacket = {preamble:{}, payload:{}};
+...</pre></li>
     </ul>
 
 
@@ -1075,21 +1091,20 @@ directory.  To load it, run Wireshark with:
 				return packet.fromParams(p);
 			}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-* luminance is how bright the bulbs should be.
-* whiteColour is something like the colour temperatue, and is the wheel used in
-  the "Whites" screen in the iPhone app.
-* fadeTime says how quickly the bulbs should move to the given state, and seem
-  to roughly be in milliseconds.  Use 0 for an immediate change.
 
-The "packet.js" module constructs each raw packet type, which can be sent to all
-bulbs using something like ```lx.sendToAll(packet.<span class="apidocCodeKeywordSpan">getLightState</span>())```.
-Similarly, to send a raw command to an individual bulb, use
-```lx.sendToOne(packet.getLightState(), bulb)``` passing in a bulb object from
-the lx.bulbs array.
+};
 
-If you want to see debug messages (including network traffic) then call
+Lifx.prototype._setupGatewayListener = function() {
+	var self = this;
+	self.on('gateway', function(gw) {
+		// Ask the gateway for new bulbs
+		self._sendPacket(gw.ip, gw.port, packet.<span class="apidocCodeKeywordSpan">getLightState</span>({site:gw.site}));
 
-```JavaScript
+		// Also slow down the discovery packets, to be polite to the network
+		self.stopDiscovery();
+		self.startDiscovery(10000);
+	});
+};
 ...</pre></li>
     </ul>
 
@@ -1237,18 +1252,17 @@ If you want to see debug messages (including network traffic) then call
 	});
 }
 
-Lifx.prototype.startDiscovery = function() {
+Lifx.prototype.startDiscovery = function(interval) {
 	// Now send the discovery packets
 	var self = this;
 	this._intervalID = setInterval(function() {
-		var message = packet.<span class="apidocCodeKeywordSpan">getPanGateway</span>();
-		self.sendPacket("255.255.255.255", port, message);
-	}, 1000);
+		self._sendPacket("255.255.255.255", port, packet.<span class="apidocCodeKeywordSpan">getPanGateway</span>());
+	}, interval);
 };
 
-Lifx.prototype.foundGateway = function(gw) {
-	var found = false;
-	for (var i in this.gateways) {
+Lifx.prototype.stopDiscovery = function() {
+	clearInterval(this._intervalID);
+};
 ...</pre></li>
     </ul>
 
@@ -1707,7 +1721,18 @@ Lifx.prototype.foundGateway = function(gw) {
 		}(pkt);
 	}
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			{name:"securityProtocol", type:type.uint8}   ,
+			{name:"strength"        , type:type.uint16}  ,
+			{name:"channel"         , type:type.uint16}  ,
+		]
+	},
+};
+
+packet.<span class="apidocCodeKeywordSpan">polyfill</span>();
+
+module.exports = packet;
+...</pre></li>
     </ul>
 
 
@@ -1879,10 +1904,10 @@ Lifx.prototype.foundGateway = function(gw) {
 				return packet.fromParams(p);
 			}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-	this._sendToOneOrAll(packet.setPowerState({onoff:0}), bulb);
+	this._sendToOneOrAll(packet.setPowerState({onoff:0, protocol: 0x1400}), bulb);
 };
 
-// Set all bulbs to a particular colour
+// Set bulbs to a particular colour
 // Pass in 16-bit numbers for each param - they will be byte shuffled as appropriate
 Lifx.prototype.lightsColour = function(hue, sat, lum, whitecol, timing, bulb) {
 	var params = {stream:0, hue:hue, saturation:sat, brightness:lum, kelvin:whitecol, fadeTime:timing};
@@ -1933,19 +1958,19 @@ Lifx.prototype.requestStatus = function() {
 				return packet.fromParams(p);
 			}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-	});
+	this._sendToOneOrAll(command, bulb);
 };
 
-/////// Fun methods ////////
+/////////// Fun methods ////////////
 
-// Turn all lights on
+// Turn lights on
 Lifx.prototype.lightsOn = function(bulb) {
-	this._sendToOneOrAll(packet.<span class="apidocCodeKeywordSpan">setPowerState</span>({onoff:1}), bulb);
+	this._sendToOneOrAll(packet.<span class="apidocCodeKeywordSpan">setPowerState</span>({onoff:0xff, protocol: 0x1400}), bulb);
 };
 
-// Turn all lights off
+// Turn lights off
 Lifx.prototype.lightsOff = function(bulb) {
-	this._sendToOneOrAll(packet.setPowerState({onoff:0}), bulb);
+	this._sendToOneOrAll(packet.setPowerState({onoff:0, protocol: 0x1400}), bulb);
 };
 ...</pre></li>
     </ul>
